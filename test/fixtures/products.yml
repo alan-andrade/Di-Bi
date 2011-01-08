@@ -1,0 +1,11 @@
+capslim_etapa_2:
+  name: Etapa 2
+  base_price: 125
+  brand:  Capslim
+  description:  Se toma despues de la etapa 1 y balbh albhs
+  
+capslim_etapa_1:
+  name: Etapa 1
+  base_price: 190
+  brand: Capslim
+  

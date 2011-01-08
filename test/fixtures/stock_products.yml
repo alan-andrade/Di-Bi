@@ -1,0 +1,10 @@
+one:
+  stock:  store_stock
+  product:  capslim_etapa_1
+  quantity: 10
+  perish_on: <%= Date.today + 6.months %>
+
+two:
+  stock:  store_stock
+  product:  capslim_etapa_2
+  quantity: 10  

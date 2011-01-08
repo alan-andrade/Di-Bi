@@ -1,0 +1,20 @@
+ceo:
+  type: Boss
+  email: gallo@me.com
+  name: Alan Andrade
+  address: atizapanAddress
+  
+maryDeJust:
+  type: Customer
+  email: mary@just.com
+  name: Mary de Just
+  address: maryAddress
+  
+aris:
+  type: Employee
+  email:  aris@dibi.com
+  name: Aris Toteles
+  address:
+    street: Colina del Viento 23
+    city: Boulevares
+    zip:  23434  
