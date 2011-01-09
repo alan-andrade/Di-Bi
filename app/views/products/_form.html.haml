@@ -4,10 +4,15 @@
       %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
       %ul
         - @product.errors.full_messages.each do |msg|
-          %li= msg     
+          %li= msg      
   %p
-    = f.label :brand, "Marca"
-    = f.select  :brand, options_from_collection_for_select(Brand.all, 'id','name')
+    = f.label :brand_name, "Marca"
+    = f.select:brand_name, options_for_select(Brand.all.map{|b| [b.name, b.name]} + [['otra','otra']], @product.brand_name)
+    
+  %p
+    = f.label :sku  , "Codigo"               
+    = f.text_field  :sku        
+  
   %p               
     = f.label :name, "Nombre"
     = f.text_field  :name

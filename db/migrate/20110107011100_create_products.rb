@@ -3,7 +3,7 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.integer :sku
       t.string  :name,      :null =>  false
-      t.string  :brand
+      t.references  :brand
       t.float   :base_price, :null =>  false
       t.text    :description   
     end

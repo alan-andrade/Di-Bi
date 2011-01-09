@@ -35,10 +35,9 @@ ActiveRecord::Schema.define(:version => 20110108030117) do
   create_table "products", :force => true do |t|
     t.integer "sku"
     t.string  "name",        :null => false
-    t.string  "brand"
+    t.integer "brand_id"
     t.float   "base_price",  :null => false
     t.text    "description"
-    t.integer "brand_id"
   end
 
   create_table "sale_products", :force => true do |t|
