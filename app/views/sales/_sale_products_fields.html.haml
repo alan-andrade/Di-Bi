@@ -1,0 +1,5 @@
+= t.fields_for :sale_products do |f|
+  = f.label 'Nombre'
+  = f.text_field :name
+  = f.label 'Cantidad'
+  = f.text_field :qty, :size=>'5'

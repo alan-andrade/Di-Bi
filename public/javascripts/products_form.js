@@ -1,14 +1,10 @@
 $(document).ready(function(){
-  $("select option[value=otra]").click(function(){
-    brandName = prompt('Nombre de Marca');
-    $.post(
-      "/brands",
-      {brand: {name: brandName}},
-      function(data){
-        if (data){
-          newOption = "<option value="+data.brand.name+">"+ data.brand.name +"</option>";
-          $("#product_brand_name").prepend(newOption)[0]
-            .selectedIndex = 0;}
-      },"json")
+  $('select').change(function(){
+        if ($('select option:selected').val() == "otra" ){
+            brandName = prompt('Nombre de Marca');
+            if (brandName != null){
+                $.post("/brands" , {brand: {name: brandName}})
+            }
+        }
   });
-})
+});

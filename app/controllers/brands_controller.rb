@@ -1,10 +1,10 @@
 class BrandsController < ApplicationController
   def create
     @brand  = Brand.new(params[:brand])
-    if @brand.save
-      respond_to do |format|
-        format.json { render :json => @brand.to_json }
-      end
+    
+    respond_to do |format|     
+        format.js   { @brand  } 
+        format.html { render :action=>'new', :controller=>'products'}        
     end
   end
 end

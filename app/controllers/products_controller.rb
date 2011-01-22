@@ -1,17 +1,9 @@
 class ProductsController < ApplicationController
-  # GET /products
-  # GET /products.xml
-  def index
-    @products = Product.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @products }
-    end
+  def index
+    @products = Product.find(:all, :include => :brand)
   end
 
-  # GET /products/1
-  # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
 
@@ -21,51 +13,34 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/new
-  # GET /products/new.xml
   def new
     @product = Product.new
-    @brands   = Brand.all
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @product }
-    end
   end
 
-  # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.xml
   def create
     @product = Product.new(params[:product])
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
-        format.xml  { render :xml => @product, :status => :created, :location => @product }
+        format.html { redirect_to(products_path, :notice => 'Producto regsitrado exitosamente.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(products_path, :notice => 'Se actualizo exitosamente el producto.') }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
       end
     end
   end

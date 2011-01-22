@@ -8,10 +8,11 @@ class Sale < ActiveRecord::Base
   
   has_many    :sale_products
   has_many    :products,  :through  =>  :sale_products
-  
+ 
   before_validation   :set_total
   before_save         :stock_math
-  
+
+    
   private 
     def set_total
       counter = 0

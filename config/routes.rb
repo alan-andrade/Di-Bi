@@ -1,5 +1,5 @@
 DiAndBi::Application.routes.draw do
-  resources :products, :brands
+  resources :products, :brands, :sales
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

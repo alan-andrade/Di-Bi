@@ -1,0 +1,11 @@
+if @brand.save
+  # Manipulate the form  
+  option  = "<option value=\"#{@brand.name}\">#{@brand.name}</option>"
+  page << "$('select#product_brand_name').prepend(\'#{option}\');"
+  page << "$('select#product_brand_name')[0].selectedIndex=0;"
+else
+  # Send Error Message  
+  page.alert "Error: #{@brand.errors.full_messages.map{|msg| msg.to_s}.join(', ')}"
+  #page << "$('select#product_brand_name').prepend('<option>TEST Error</option>').selectedIndex=0"
+  
+end

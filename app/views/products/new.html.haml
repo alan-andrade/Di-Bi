@@ -1,5 +1,10 @@
-%h1 New product
+=content_for :scripts do
+  =javascript_include_tag 'products_form.js'
+.grid_12
+  %h1 Nuevo Producto    
 
-= render 'form'
+.grid_8
+  = render 'form'
 
-= link_to 'Back', products_path
+.grid_4
+  = link_to 'Regresar', products_path

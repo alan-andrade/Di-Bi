@@ -1,26 +1,37 @@
 = form_for @product do |f|
-  -if @product.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
-      %ul
-        - @product.errors.full_messages.each do |msg|
-          %li= msg      
-  %p
-    = f.label :brand_name, "Marca"
-    = f.select:brand_name, options_for_select(Brand.all.map{|b| [b.name, b.name]} + [['otra','otra']], @product.brand_name)
-    
-  %p
-    = f.label :sku  , "Codigo"               
-    = f.text_field  :sku        
+  =field_set_tag 'Informacion de producto' do 
+    -if @product.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+        %ul
+          - @product.errors.full_messages.each do |msg|
+            %li= msg
   
-  %p               
-    = f.label :name, "Nombre"
-    = f.text_field  :name
-  %p
-    = f.label :base_price,  "Precio"
-    = f.text_field  :base_price
-  %p
-    = f.label :description, "Descripcion"
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+    %p
+      =f.label :brand_name, "Marca" 
+      %br
+        = f.select :brand_name, product_brand_name_select(:product=>@product) 
+        
+    %p
+      =f.label :sku  , "Codigo de barras"
+      %br
+        = f.text_field  :sku   
+      
+    %p
+      =f.label :name, "Nombre"
+      %br
+        = f.text_field  :name
+
+    %p
+      =f.label :base_price,  "Precio"
+      %br
+        = f.text_field  :base_price
+    
+    %p
+      =f.label :description, "Descripcion"
+      %br
+        = f.text_area :description, :size=>"25x5"    
+      
+    .actions
+      = f.submit 'Guardar'
+   
