@@ -1,0 +1,10 @@
+=div_for customer_to_select, :name  =>  customer_to_select.name do
+  %p
+    =customer_to_select.name
+    -
+    =customer_to_select.home_phone
+    %br
+    %small
+      =customer_to_select.address.city
+      ,
+      =customer_to_select.address.street

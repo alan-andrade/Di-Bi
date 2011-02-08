@@ -1,32 +1,41 @@
+=content_for :scripts do 
+  =javascript_include_tag 'jquery-ui.js', 'sale_form.js'
+=content_for :css do
+  =stylesheet_link_tag 'cupertino/cupertino.css'
+  
 %h1 Nueva Venta
 
 .grid_8  
   = form_for @sale do |t|
     = field_set_tag 'Quien hizo la venta' do
-      = t.label 'Sucursal'
-      = t.select :store, Store.all.collect{|d| [d.name, d.id]}
+      = t.label :store_id, 'Sucursal'
+      = t.select :store_id, Store.all.collect{|d| [d.name, d.id]}
     
-      = t.label 'Vendedor'
-      = t.select :dealer, User.all.collect{|u| [u.name, u.id]}
+      = t.label :dealer_id,'Vendedor'
+      = t.select :dealer_id, Employee.all.collect{|u| [u.name, u.id]}
     
     = field_set_tag 'Cliente' do
-      = t.fields_for :sale_customer do |c|
-        = c.label 'Nombre'
-        = c.text_field :customer
+      = fields_for :customer do
+        = label_tag :name,'Nombre'
+        = text_field_tag :customer_name
+        = hidden_field_tag  :customer_id
     
     = field_set_tag 'Produtos', :id=>'fields_for_products' do
-      = fields_for 'sale_sale_products_attributes' do |s|
-        =s.label 'nombre'
-        =s.text_field 'name'
-        =s.label 'cantidad'
-        =s.text_field 'qty', :size=>'3'
-        
-        =s.label 'nombre'
-        =s.text_field 'name'
-        =s.label 'cantidad'
-        =s.text_field 'qty', :size=>'3'
-    = link_to_function image_tag('icons/add.png') do |page|
-      -page['#fields_for_products'].append render :partial=>'sale_products_fields', :locals=>{:t=>t}
+      = render :partial => "sale_product_fields"
+      = link_to_function image_tag('icons/add.png')  do |page|
+        - page['#fields_for_products'].prepend render :partial =>  "sale_product_fields"
+        - page << "autocompleteFields();"
+      Total: 
+
+      
       
     .action
-      = t.submit 'Vender' 
+      = t.submit 'Vender'
+
+.grid_4
+  #customer-finder
+    =form_for :customer, :url=>search_customer_path, :html=>{:method=>'post', :id=>"customer-finder-form"}, :remote=>true do
+      =text_field_tag :customer_name
+      =submit_tag 'Buscar'
+    =image_tag 'loader.gif', :id=>'loader', :style=>"display:none"
+    #customers-results

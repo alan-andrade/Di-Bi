@@ -31,10 +31,20 @@ $peach  = #ECEAB0
 
 #body
   background: #F9F9F9
+  padding-bottom: 10px
   
 #footer
   background: $dark
   color: $white
+  
+input,textarea
+  background: $white
+  color:  $dark
+  border: 1px solid $purple
+  padding: 5px
+  
+label
+  font-weight: bold
   
 #body
   h1
@@ -49,6 +59,8 @@ $peach  = #ECEAB0
     legend
       padding: 10px
       font-size: 120%
+  select
+    padding: 3px
     
 #footer
   border-top: 1px solid $dark
@@ -69,3 +81,13 @@ table
   td,th
     text-align: left
     padding: 5px  
+    
+.customer
+  background: $dark
+  color: $white
+.customer p
+  margin: 5px
+  padding: 5px
+.customer p:hover
+  cursor: pointer
+  color: $purple

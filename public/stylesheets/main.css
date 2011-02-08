@@ -20,11 +20,21 @@
     margin-bottom: 0px; }
 
 #body {
-  background: #f9f9f9; }
+  background: #f9f9f9;
+  padding-bottom: 10px; }
 
 #footer {
   background: #332f28;
   color: #eeeeee; }
+
+input, textarea {
+  background: #eeeeee;
+  color: #332f28;
+  border: 1px solid #caa6e3;
+  padding: 5px; }
+
+label {
+  font-weight: bold; }
 
 #body h1 {
   text-align: center;
@@ -36,6 +46,8 @@
   #body fieldset legend {
     padding: 10px;
     font-size: 120%; }
+#body select {
+  padding: 3px; }
 
 #footer {
   border-top: 1px solid #332f28;
@@ -54,3 +66,15 @@ table {
   table td, table th {
     text-align: left;
     padding: 5px; }
+
+.customer {
+  background: #332f28;
+  color: #eeeeee; }
+
+.customer p {
+  margin: 5px;
+  padding: 5px; }
+
+.customer p:hover {
+  cursor: pointer;
+  color: #caa6e3; }

@@ -1,0 +1,12 @@
+%h1
+  Surtir a sucursal
+  
+.grid_8
+  =form_tag do
+    =label_tag  :store_id, 'Tienda a surtir'
+    =select_tag :store_id, options_from_collection_for_select(@stores, 'id',  'name')
+    =field_set_tag 'Productos', :id=>"stock_products_fields" do
+      =link_to_function image_tag('icons/add.png') do |page|
+        - page['#stock_products_fields'].append render :partial =>  "stock_products_fields"
+      = render :partial => "stock_products_fields"      
+    = submit_tag 'Surtir'

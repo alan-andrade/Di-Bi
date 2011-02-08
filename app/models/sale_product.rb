@@ -7,6 +7,14 @@ class SaleProduct < ActiveRecord::Base
   
   before_validation :set_price
   
+  def name
+    product.name  if product
+  end
+  
+  def name=(name)
+    product = Product.find_or_create_by_name(name)
+  end
+  
   private
     def set_price
       self.price  = self.product.base_price if self.price.nil?

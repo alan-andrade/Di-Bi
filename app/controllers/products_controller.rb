@@ -56,4 +56,18 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def search
+    name  = params[:name]
+    @products = Product.where("name LIKE '%#{name}%'").includes(:brand)
+    respond_to do |format|
+      format.js{ 
+        render :json => ActiveSupport::JSON.encode(
+          @products.map do |p|
+            {:name=>p.name, :brand=>p.brand_name, :id=>p.id, :price=>p.base_price}
+          end
+          )
+      }
+    end
+  end
 end

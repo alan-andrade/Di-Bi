@@ -1,0 +1,1 @@
+page["#customers-results"].html( @customers.any? ? (render :partial=>'customer_to_select', :collection=>@customers) : '<p>Sin Resultados</p>' )

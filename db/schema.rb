@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20110108030117) do
     t.string  "type"
     t.string  "email"
     t.string  "name",       :null => false
+    t.string  "home_phone"
+    t.string  "cellphone"
     t.integer "address_id"
   end
 

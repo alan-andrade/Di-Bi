@@ -1,0 +1,10 @@
+%p
+  = label_tag 'name' , "Nombre"
+  = text_field_tag  'sale_sale_product[]name',nil,:class=>'sale_product_name'
+  = hidden_field_tag  'sale_sale_product[]product_id'
+  = label_tag :price, "$"
+  = text_field_tag  'sale_sale_product[]price', nil,:size=>4
+  = label_tag :quantity,  "Cantidad"
+  = text_field_tag  'sale_sale_product[]quantity', nil, :size=>4
+  = link_to_function  image_tag('icons/delete.png'), "$(this).parent().remove()"
+

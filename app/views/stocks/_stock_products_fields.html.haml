@@ -1,0 +1,7 @@
+%div
+  =select_tag 'stock_products[]product_id', option_groups_from_collection_for_select(@products, :products, :name, :id, :name)
+  =label_tag  'stock_products[]quantity', "Cantidad"
+  =number_field_tag 'stock_products[]quantity', 1,:size=>4, :in=>1..300
+  =label_tag  'stock_products[]perish_on', "Caduca en"
+  =select_tag 'stock_products[]perish_on', options_from_collection_for_select(StockProduct::PERISHABLE_TAGS, 'date', 'tag')
+  =link_to_function image_tag('icons/delete.png'), "$(this).parent().slideUp()"
