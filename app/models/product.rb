@@ -17,4 +17,8 @@ class Product < ActiveRecord::Base
   def brand_name=(attributes)
     self.brand = Brand.find_by_name(attributes)   
   end
+  
+  def complete_name
+    brand_name + ', ' + name
+  end
 end

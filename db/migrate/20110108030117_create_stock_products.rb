@@ -5,6 +5,7 @@ class CreateStockProducts < ActiveRecord::Migration
       t.references  :product  , :null =>  false
       t.integer     :quantity , :null =>  false
       t.date        :perish_on
+      t.timestamps
     end
   end
 

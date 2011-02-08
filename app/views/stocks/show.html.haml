@@ -1,0 +1,15 @@
+.grid_8
+  %h1
+    Stock de 
+    = @store.name
+  
+  %table
+    %tr
+      %th Cantidad
+      %th Producto
+      %th Expiracion
+    -@store.stock.stock_products.each do |sp|
+      %tr
+        %td=sp.quantity
+        %td=sp.product.complete_name
+        %td=sp.perish_on

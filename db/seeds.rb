@@ -1,5 +1,5 @@
 capslim   = Brand.create  :name =>  'Capslim'
-demograss = Brand.create  :name =>  'Nutrimalteada'
+demograss = Brand.create  :name =>  'Demograss'
 etapa1    = Product.create :name=>'etapa 1', :base_price=>450.50, :description=>"Se toma primero que todo", :brand=>capslim
 nutrimalteada = Product.create :name=>'nutrimalteada', :base_price=>400, :description=>"Evacuaciones ligeras", :brand=>demograss
 

@@ -4,8 +4,9 @@ DiAndBi::Application.routes.draw do
   match 'customers/search/'  => 'customers#search', :as=>'search_customer', :via=>:post
   match 'products/search/'  =>  'products#search',  :as=>'search_product',  :via=>:post
   
-  match 'surtir'  =>  'stocks#new', :as =>  'store_stock',  :via  =>  :get
+  match 'surtir'  =>  'stocks#new', :as =>  'new_store_stock',  :via  =>  :get
   match 'surtir'  =>  'stocks#create', :via  =>  :post
+  match 'stock/:id' =>  'stocks#show',  :via  =>  :get, :as => 'store_stock'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
